@@ -40,16 +40,16 @@ class WebsiteUser(FastHttpUser):
     '''
     get percetage for each task by using @task decorator
     '''
-    @task
+    @task(20)
     def get_single_Prod(self):
         pid = 27
         self.client.get(f"/api/prods?pid={pid}")
 
-    @task(3)
+    @task(9)
     def get_all_Prod(self):
         self.client.get(f"/api/prods")
     
-    @task(3)
+    @task(1)
     def add_a_prod(self):
         
         headers = {
@@ -68,7 +68,7 @@ class WebsiteUser(FastHttpUser):
         }
         self.client.post('/api/prods', data=json.dumps(payload), headers=headers)
         
-    @task(3)
+    @task(1)
     def update_a_prod(self):
         
         headers = {
@@ -85,7 +85,7 @@ class WebsiteUser(FastHttpUser):
         self.client.put('/api/prods', data=json.dumps(payload), headers=headers)
         
     @task(1)
-    def update_a_prod(self):
+    def delete_a_prod(self):
         
         headers = {
             'content-type': 'application/json',

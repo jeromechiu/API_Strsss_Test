@@ -20,3 +20,5 @@ This project is made by python Locust.
         locust -f locustfile.py -H http://{api_server_ip}:{port}
 
 5. Go to Locus Web UI at http://0.0.0.0:8089
+
+![image1](samples/total_requests_per_second_1666336394.png)
