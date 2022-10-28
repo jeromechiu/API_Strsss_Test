@@ -65,6 +65,6 @@ class WebsiteUser(FastHttpUser):
     # get percetage for each task by using @task decorator
     # '''
     @task
-    def do_CimApplication(self):        
+    def do_test(self):        
         res = self.client.get('api/', headers=self.api_headers)
         print(res.json())
