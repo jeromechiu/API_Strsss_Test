@@ -4,6 +4,10 @@ import random
 import json
 import time
 
+
+
+
+
 class WebsiteUser(FastHttpUser):
     """
     User class that does requests to the locust web server running on localhost,
@@ -28,8 +32,18 @@ class WebsiteUser(FastHttpUser):
         # self.logout()
         pass
 
+
+
     def login(self):
-        response = self.client.post("/login", {"username":"ellen_key", "password":"education"})
+        loginUrl = 'http://wiles-portal-new.k8s-dev.k8s.wistron.com/api/portal_common/login'
+        login_header = {
+            'wimes':'eyJ1c2VySWQiOm51bGwsInBsYW50IjoiRjEzMCIsImltYWdlIjoicGxhdGZvcm0ucG9ydGFsd2VidWkiLCJhcElkIjoiQ0lNX1NJR05JTl9XV19XRUJVSSIsInZlcnNpb24iOiIwLjIuNDAiLCJsYW5ndWFnZSI6InpoLVRXIiwicmVxdWVzdFRpbWUiOiIyMDIyLTEwLTI3VDA5OjUxOjQ5LjEzN1oifQ=='
+            }
+        payload = {
+            "userId": "lmsuser2020",
+            "password": "lmsuser2020"
+            }
+        response = self.client.post(loginUrl, )
         res_data = response.json()
         '''Get authentication token from response data'''
 
